@@ -1,0 +1,107 @@
+<html>
+<head>
+<title> Hell Yeah 
+</title>
+<style>
+</style>
+</head>
+<body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Screenshots</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            user-select: none; /* Disable text selection */
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none !important; /* Hide content completely */
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content">
+        <h1>Welcome to My Secure Site</h1>
+        <p>If you try to take a screenshot, this content will disappear!</p>
+    </div>
+
+    <script>
+        // Function to hide all text content
+        function hideContent() {
+            const content = document.getElementById('content');
+            if (content) {
+                content.classList.add('hidden');
+                alert('Screenshots are not allowed. Content has been hidden.');
+                // Optional: Restore the content after some time
+                setTimeout(() => {
+                    content.classList.remove('hidden');
+                }, 3000); // Restores the content after 3 seconds
+            }
+        }
+
+        // Detect PrintScreen keypress (for PC)
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen') {
+                hideContent();
+            }
+        });
+
+        // Detect Screenshot on Mobile (use visibilitychange event)
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                hideContent();
+            }
+        });
+
+        // Disable right-click (optional)
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            alert('Right-click is disabled on this website.');
+        });
+
+        // Disable common key shortcuts (optional)
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+                alert('Saving content is disabled.');
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+                e.preventDefault();
+                alert('Inspect Element is disabled.');
+            }
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+                alert('Viewing source is disabled.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+<div > my name is sam 
+</div>
+
+<center> bitch! </center>
+
+<div> bijay sir is participating in hackaton </div>
+</body>
+<script>
+@media print {
+    html, body {
+       display: none;  /* hide whole page */
+    }
+}
+</script>
+</html>
